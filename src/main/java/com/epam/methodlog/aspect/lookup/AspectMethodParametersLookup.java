@@ -1,12 +1,14 @@
-package com.epam.methodlog.aspect;
+package com.epam.methodlog.aspect.lookup;
 
 import org.aspectj.lang.JoinPoint;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class AspectMethodParametersLookup {
 
     private final AspectMethodLookup aspectMethodLookup;

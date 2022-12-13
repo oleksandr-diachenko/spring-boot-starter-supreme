@@ -1,18 +1,21 @@
 package com.epam.methodlog.aspect.log;
 
-import com.epam.methodlog.aspect.AspectMethodLookup;
-import com.epam.methodlog.aspect.AspectMethodParametersLookup;
+import com.epam.methodlog.aspect.lookup.AspectLoggerLookup;
+import com.epam.methodlog.aspect.lookup.AspectMethodLookup;
+import com.epam.methodlog.aspect.lookup.AspectMethodParametersLookup;
 import com.epam.methodlog.utils.formatter.StringFormatter;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 import java.util.Map;
 
 @Aspect
+@Component
 public class InputMethodLogAspect {
 
     private final AspectMethodLookup aspectMethodLookup;
