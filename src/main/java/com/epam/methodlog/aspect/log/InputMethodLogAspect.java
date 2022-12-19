@@ -4,6 +4,7 @@ import com.epam.methodlog.aspect.log.level.Logger;
 import com.epam.methodlog.aspect.lookup.AspectMethodLookup;
 import com.epam.methodlog.aspect.lookup.AspectMethodParametersLookup;
 import com.epam.methodlog.utils.formatter.StringFormatter;
+import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -15,22 +16,13 @@ import java.util.Map;
 
 @Aspect
 @Component
+@RequiredArgsConstructor
 public class InputMethodLogAspect {
 
     private final AspectMethodLookup aspectMethodLookup;
     private final AspectMethodParametersLookup aspectMethodParametersLookup;
     private final StringFormatter<Map<String, Object>> mapStringFormatter;
     private final Logger logger;
-
-    public InputMethodLogAspect(AspectMethodLookup aspectMethodLookup,
-                                AspectMethodParametersLookup aspectMethodParametersLookup,
-                                StringFormatter<Map<String, Object>> mapStringFormatter,
-                                Logger logger) {
-        this.aspectMethodLookup = aspectMethodLookup;
-        this.aspectMethodParametersLookup = aspectMethodParametersLookup;
-        this.mapStringFormatter = mapStringFormatter;
-        this.logger = logger;
-    }
 
     @Pointcut("@annotation(com.epam.methodlog.annotation.InputMethodLog)")
     public void anyMethodAnnotatedWithInputMethodLog() {

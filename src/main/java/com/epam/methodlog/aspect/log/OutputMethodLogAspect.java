@@ -2,6 +2,7 @@ package com.epam.methodlog.aspect.log;
 
 import com.epam.methodlog.aspect.log.level.Logger;
 import com.epam.methodlog.aspect.lookup.AspectMethodLookup;
+import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -12,15 +13,11 @@ import java.lang.reflect.Method;
 
 @Aspect
 @Component
+@RequiredArgsConstructor
 public class OutputMethodLogAspect {
 
     private final AspectMethodLookup aspectMethodLookup;
     private final Logger logger;
-
-    public OutputMethodLogAspect(AspectMethodLookup aspectMethodLookup, Logger logger) {
-        this.aspectMethodLookup = aspectMethodLookup;
-        this.logger = logger;
-    }
 
     @Pointcut("@annotation(com.epam.methodlog.annotation.OutputMethodLog)")
     public void anyMethodAnnotatedWithOutputMethodLog() {

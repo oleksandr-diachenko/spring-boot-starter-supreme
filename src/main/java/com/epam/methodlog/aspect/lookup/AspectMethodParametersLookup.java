@@ -1,5 +1,6 @@
 package com.epam.methodlog.aspect.lookup;
 
+import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.JoinPoint;
 import org.springframework.stereotype.Component;
 
@@ -9,13 +10,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
+@RequiredArgsConstructor
 public class AspectMethodParametersLookup {
 
     private final AspectMethodLookup aspectMethodLookup;
-
-    public AspectMethodParametersLookup(AspectMethodLookup aspectMethodLookup) {
-        this.aspectMethodLookup = aspectMethodLookup;
-    }
 
     public Map<String, Object> lookup(JoinPoint jp) {
         Method method = aspectMethodLookup.lookup(jp);
