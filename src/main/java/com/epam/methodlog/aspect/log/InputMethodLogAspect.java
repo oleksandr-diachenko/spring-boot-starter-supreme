@@ -1,6 +1,6 @@
 package com.epam.methodlog.aspect.log;
 
-import com.epam.methodlog.aspect.lookup.AspectLoggerLookup;
+import com.epam.methodlog.aspect.log.level.Logger;
 import com.epam.methodlog.aspect.lookup.AspectMethodLookup;
 import com.epam.methodlog.aspect.lookup.AspectMethodParametersLookup;
 import com.epam.methodlog.utils.formatter.StringFormatter;
@@ -8,7 +8,6 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
@@ -21,16 +20,16 @@ public class InputMethodLogAspect {
     private final AspectMethodLookup aspectMethodLookup;
     private final AspectMethodParametersLookup aspectMethodParametersLookup;
     private final StringFormatter<Map<String, Object>> mapStringFormatter;
-    private final AspectLoggerLookup aspectLoggerLookup;
+    private final Logger logger;
 
     public InputMethodLogAspect(AspectMethodLookup aspectMethodLookup,
                                 AspectMethodParametersLookup aspectMethodParametersLookup,
                                 StringFormatter<Map<String, Object>> mapStringFormatter,
-                                AspectLoggerLookup aspectLoggerLookup) {
+                                Logger logger) {
         this.aspectMethodLookup = aspectMethodLookup;
         this.aspectMethodParametersLookup = aspectMethodParametersLookup;
         this.mapStringFormatter = mapStringFormatter;
-        this.aspectLoggerLookup = aspectLoggerLookup;
+        this.logger = logger;
     }
 
     @Pointcut("@annotation(com.epam.methodlog.annotation.InputMethodLog)")
@@ -43,7 +42,6 @@ public class InputMethodLogAspect {
         Map<String, Object> args = aspectMethodParametersLookup.lookup(jp);
         String parameters = mapStringFormatter.format(args);
         Method method = aspectMethodLookup.lookup(jp);
-        Logger logger = aspectLoggerLookup.lookup(jp);
-        logger.info("Method: '{}' was called with parameters: {}", method.getName(), parameters);
+        logger.log(jp, "Method: '{}' was called with parameters: {}", method.getName(), parameters);
     }
 }
