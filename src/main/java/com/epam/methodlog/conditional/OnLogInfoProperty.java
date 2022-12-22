@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 
 import static org.springframework.context.annotation.ConfigurationCondition.ConfigurationPhase.PARSE_CONFIGURATION;
 
-public class ConditionalOnLogInfoProperty extends AllNestedConditions {
+public class OnLogInfoProperty extends AllNestedConditions {
 
-    public ConditionalOnLogInfoProperty() {
+    public OnLogInfoProperty() {
         super(PARSE_CONFIGURATION);
     }
 

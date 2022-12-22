@@ -4,7 +4,7 @@ import com.epam.methodlog.aspect.log.level.Logger;
 import com.epam.methodlog.aspect.log.level.LoggerDebug;
 import com.epam.methodlog.aspect.log.level.LoggerInfo;
 import com.epam.methodlog.aspect.lookup.AspectLoggerLookup;
-import com.epam.methodlog.conditional.ConditionalOnLogInfoProperty;
+import com.epam.methodlog.conditional.OnLogInfoProperty;
 import com.epam.methodlog.property.MethodLogProperty;
 import com.epam.methodlog.utils.formatter.MapWithoutBracketsStringFormatter;
 import com.epam.methodlog.utils.formatter.StringFormatter;
@@ -26,7 +26,7 @@ public class MethodLogAutoConfig {
     }
 
     @Bean
-    @Conditional(ConditionalOnLogInfoProperty.class)
+    @Conditional(OnLogInfoProperty.class)
     public Logger logInfo(AspectLoggerLookup aspectLoggerLookup) {
         return new LoggerInfo(aspectLoggerLookup);
     }
