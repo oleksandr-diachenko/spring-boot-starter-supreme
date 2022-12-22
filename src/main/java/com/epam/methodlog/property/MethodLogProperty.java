@@ -5,8 +5,8 @@ import org.slf4j.event.Level;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Data
-@ConfigurationProperties(prefix = "method.log")
+@ConfigurationProperties("method.log")
 public class MethodLogProperty {
 
-    private Level logLevel;
+    private Level loggerLevel;
 }

@@ -12,7 +12,7 @@
 
     <groupId>com.epam</groupId>
     <artifactId>log-method-spring-boot-starter</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <name>log-method-spring-boot-starter</name>
     <description>log-method-spring-boot-starter</description>
     <packaging>jar</packaging>
