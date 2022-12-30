@@ -15,10 +15,10 @@ import static org.mockito.Mockito.when;
 
 @Junit
 @ExtendWith(MockitoExtension.class)
-class AspectLoggerLookupTest {
+class LoggerResolverTest {
 
     @InjectMocks
-    private AspectLoggerLookup aspectLoggerLookup;
+    private LoggerResolver aspectLoggerResolver;
 
     @Mock
     private JoinPoint joinPoint;
@@ -27,7 +27,7 @@ class AspectLoggerLookupTest {
     void shouldReturnLogger() {
         when(joinPoint.getTarget()).thenReturn(new Target());
 
-        Logger logger = aspectLoggerLookup.lookup(joinPoint);
+        Logger logger = aspectLoggerResolver.resolve(joinPoint);
 
         Logger expected = LoggerFactory.getLogger(Target.class);
         assertThat(logger).isSameAs(expected);

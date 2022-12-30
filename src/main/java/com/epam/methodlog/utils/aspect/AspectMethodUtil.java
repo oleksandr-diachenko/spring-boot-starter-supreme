@@ -1,7 +1,7 @@
-package com.epam.methodlog.aspect.lookup;
+package com.epam.methodlog.utils.aspect;
 
-import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
@@ -10,13 +10,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-@RequiredArgsConstructor
-public class AspectMethodParametersLookup {
+public class AspectMethodUtil {
 
-    private final AspectMethodLookup aspectMethodLookup;
+    public Method method(JoinPoint jp) {
+        MethodSignature signature = (MethodSignature) jp.getSignature();
+        return signature.getMethod();
+    }
 
-    public Map<String, Object> lookup(JoinPoint jp) {
-        Method method = aspectMethodLookup.lookup(jp);
+    public Map<String, Object> paramsToArgs(JoinPoint jp) {
+        Method method = method(jp);
         Parameter[] parameters = method.getParameters();
         Object[] args = jp.getArgs();
         Map<String, Object> result = new HashMap<>();

@@ -15,16 +15,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Spring
 @SpringBootTest(classes = TestConfig.class)
 @ExtendWith({SpringExtension.class, OutputCaptureExtension.class})
-class InputMethodLogAspectTest {
+class DebugMethodLogAspectTest {
 
     @Autowired
     private MethodLog methodLog;
 
     @Test
     void shouldLogInputParameters(CapturedOutput output) {
-        methodLog.print(1, 2);
+        int result = methodLog.debug(1, 2);
 
+        assertThat(result).isEqualTo(3);
         assertThat(output)
-                .contains("Method: 'print' was called with parameters: a=1, b=2");
+                .contains("Method: 'debug' was called with parameters: a=1, b=2")
+                .contains("Method: 'debug' returned: 3");
     }
 }
