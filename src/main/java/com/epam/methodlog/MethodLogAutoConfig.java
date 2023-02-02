@@ -13,7 +13,7 @@ import java.util.Map;
 
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan
+@ComponentScan(basePackages = "${method.log.packageToScan}")
 @EnableConfigurationProperties(MethodLogProperty.class)
 public class MethodLogAutoConfig {
 
