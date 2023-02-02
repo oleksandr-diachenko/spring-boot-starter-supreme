@@ -1,0 +1,1 @@
+org.springframework.boot.env.EnvironmentPostProcessor=com.epam.methodlog.internal.environment.PackageToScanProvidedValidatorEPP
