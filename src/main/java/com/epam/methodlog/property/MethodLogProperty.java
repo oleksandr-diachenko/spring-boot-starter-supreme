@@ -9,4 +9,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class MethodLogProperty {
 
     private Level loggerLevel;
+    private String packageToScan;
 }
