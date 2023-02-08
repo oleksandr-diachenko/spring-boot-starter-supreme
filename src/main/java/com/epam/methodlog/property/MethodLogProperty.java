@@ -11,4 +11,5 @@ public class MethodLogProperty {
     private Level loggerLevel;
     private String packageToScan;
     private String inputLoggingMessage;
+    private String outputLoggingMessage;
 }

@@ -3,6 +3,7 @@ package com.epam.methodlog.aspect.log;
 import com.epam.methodlog.annotation.OutputMethodLog;
 import com.epam.methodlog.aspect.log.logger.LogPrinter;
 import com.epam.methodlog.aspect.log.logger.MessageInfo;
+import com.epam.methodlog.property.MethodLogProperty;
 import com.epam.methodlog.utils.aspect.AspectMethodUtil;
 import com.epam.methodlog.aspect.lookup.LoggerResolver;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,7 @@ public class OutputMethodLogAspect {
     private final AspectMethodUtil aspectMethodUtil;
     private final LoggerResolver loggerResolver;
     private final LogPrinter logPrinter;
+    private final MethodLogProperty methodLogProperty;
 
     @Pointcut("@annotation(com.epam.methodlog.annotation.OutputMethodLog)")
     public void anyMethodAnnotatedWithOutputMethodLog() {
@@ -45,7 +47,8 @@ public class OutputMethodLogAspect {
     }
 
     private String message(Method method, Object retVal) {
-        return format("Method: '%s' returned: %s", method.getName(), retVal);
+        String message = methodLogProperty.getOutputLoggingMessage().replace("{}", "%s");
+        return format(message, method.getName(), retVal);
     }
 
     private Logger logger(JoinPoint jp) {
