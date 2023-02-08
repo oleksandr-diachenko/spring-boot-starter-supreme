@@ -4,6 +4,7 @@ import com.epam.methodlog.annotation.InputMethodLog;
 import com.epam.methodlog.aspect.log.logger.LogPrinter;
 import com.epam.methodlog.aspect.log.logger.MessageInfo;
 import com.epam.methodlog.aspect.lookup.LoggerResolver;
+import com.epam.methodlog.property.MethodLogProperty;
 import com.epam.methodlog.utils.aspect.AspectMethodUtil;
 import com.epam.methodlog.utils.formatter.StringFormatter;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +30,7 @@ public class InputMethodLogAspect {
     private final LoggerResolver loggerResolver;
     private final StringFormatter<Map<String, Object>> mapStringFormatter;
     private final LogPrinter logPrinter;
+    private final MethodLogProperty methodLogProperty;
 
     @Pointcut("@annotation(com.epam.methodlog.annotation.InputMethodLog)")
     public void anyMethodAnnotatedWithInputMethodLog() {
@@ -49,7 +51,8 @@ public class InputMethodLogAspect {
     }
 
     private String message(String parameters, Method method) {
-        return format("Method: '%s' was called with parameters: %s", method.getName(), parameters);
+        String message = methodLogProperty.getInputLoggingMessage().replace("{}", "%s");
+        return format(message, method.getName(), parameters);
     }
 
     private Logger logger(JoinPoint jp) {
