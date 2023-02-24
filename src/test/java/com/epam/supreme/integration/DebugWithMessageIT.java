@@ -12,7 +12,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(classes = TestConfig.class)
+@SpringBootTest(classes = TestConfig.class, properties = "logging.level.com.epam.supreme.integration.testinstance=DEBUG")
 @ExtendWith({SpringExtension.class, OutputCaptureExtension.class})
 class DebugWithMessageIT {
 

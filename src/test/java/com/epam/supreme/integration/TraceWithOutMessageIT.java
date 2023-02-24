@@ -1,7 +1,7 @@
 package com.epam.supreme.integration;
 
 import com.epam.supreme.TestConfig;
-import com.epam.supreme.integration.testinstance.DebugWithoutMessageInstance;
+import com.epam.supreme.integration.testinstance.TraceWithoutMessageInstance;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +12,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(classes = TestConfig.class, properties = "logging.level.com.epam.supreme.integration.testinstance=DEBUG")
+@SpringBootTest(classes = TestConfig.class, properties = "logging.level.com.epam.supreme.integration.testinstance=TRACE")
 @ExtendWith({SpringExtension.class, OutputCaptureExtension.class})
-class DebugWithOutMessageIT {
+class TraceWithOutMessageIT {
 
     @Autowired
-    private DebugWithoutMessageInstance instance;
+    private TraceWithoutMessageInstance instance;
 
     @Test
     void shouldLogPrintedValues(CapturedOutput output) {
