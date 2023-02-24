@@ -51,7 +51,7 @@
         <repository>
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/oleksandr-diachenko/spring-boot-starter-log-method</url>
+            <url>https://maven.pkg.github.com/oleksandr-diachenko/spring-boot-starter-supreme</url>
         </repository>
     </distributionManagement>
 
