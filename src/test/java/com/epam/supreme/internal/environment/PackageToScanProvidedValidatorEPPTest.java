@@ -30,10 +30,10 @@ class PackageToScanProvidedValidatorEPPTest {
 
     @Test
     void shouldThrowExceptionWhenPackageToScanNotProvided() {
-        when(environment.getProperty("method.log.packageToScan")).thenReturn(null);
+        when(environment.getProperty("supreme.package-to-scan")).thenReturn(null);
 
         assertThatThrownBy(() -> epp.postProcessEnvironment(environment, application))
                 .isInstanceOf(EnvironmentPropertyNotFoundException.class)
-                .hasMessageContaining("method.log.packageToScan");
+                .hasMessageContaining("supreme.package-to-scan");
     }
 }

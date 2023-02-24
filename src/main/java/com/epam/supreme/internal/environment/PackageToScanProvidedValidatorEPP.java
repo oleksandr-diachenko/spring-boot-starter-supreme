@@ -9,8 +9,8 @@ public class PackageToScanProvidedValidatorEPP implements EnvironmentPostProcess
 
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
-        if (environment.getProperty("method.log.packageToScan") == null) {
-            throw new EnvironmentPropertyNotFoundException("method.log.packageToScan");
+        if (environment.getProperty("supreme.package-to-scan") == null) {
+            throw new EnvironmentPropertyNotFoundException("supreme.package-to-scan");
         }
     }
 }
