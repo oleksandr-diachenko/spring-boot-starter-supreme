@@ -5,5 +5,5 @@ import org.aspectj.lang.JoinPoint;
 
 public interface DefaultTemplateDynamicResolver {
 
-    String replace(String message, JoinPoint jp, @Nullable Object retVal);
+    String resolve(String message, JoinPoint jp, @Nullable Object retVal);
 }

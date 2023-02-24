@@ -19,10 +19,10 @@ public class DefaultMessageConstructor {
 
     public String construct(JoinPoint jp, @Nullable Object retVal) {
         return defaultTemplateProviders.stream()
-                .filter(resolver -> resolver.isApplicableFor(jp, retVal))
+                .filter(provider -> provider.isApplicableFor(jp, retVal))
                 .findFirst()
-                .map(resolver -> resolver.retrieveDefaultTemplate(jp, retVal))
-                .map(message -> defaultTemplateDynamicResolver.replace(message, jp, retVal))
+                .map(provider -> provider.retrieveDefaultTemplate(jp, retVal))
+                .map(message -> defaultTemplateDynamicResolver.resolve(message, jp, retVal))
                 .orElseThrow(DefaultTemplateProviderNotFound::new);
     }
 }

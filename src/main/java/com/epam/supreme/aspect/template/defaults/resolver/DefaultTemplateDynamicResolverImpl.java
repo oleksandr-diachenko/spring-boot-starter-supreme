@@ -20,7 +20,7 @@ public class DefaultTemplateDynamicResolverImpl implements DefaultTemplateDynami
     private final StringFormatter<Map<String, Object>> mapStringFormatter;
 
     @Override
-    public String replace(String message, JoinPoint jp, @Nullable Object retVal) {
+    public String resolve(String message, JoinPoint jp, @Nullable Object retVal) {
         Method method = methodResolver.resolve(jp);
         String methodName = method.getName();
         Map<String, Object> params = paramsResolver.resolve(jp);
