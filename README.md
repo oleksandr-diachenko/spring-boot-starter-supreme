@@ -2,9 +2,19 @@
 
 Spring Boot Starter Supreme is a logging starter that includes annotations for logging various methods.
 This makes it easy to add logging to your project without the need to writing additional code.
-Available annotation:
-```
 
+## **Available annotation**
+
+```java
+@LogInfo
+
+@LogDebug
+
+@LogTrace
+
+@LogWarn
+
+@LogError
 ```
 
 ## **Installation and Usage**
@@ -41,10 +51,10 @@ supreme.message.in=Method: '{method}' was called with parameters: {params}
 supreme.message.out=Method: '{method}' returned: {retVal}
 ```
 
-# **License**
+## **License**
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
-# **Author**
+## **Author**
 
 Oleksandr Diachenko
