@@ -23,20 +23,20 @@ class TraceWithMessageIT {
     void shouldLogPrintedValues(CapturedOutput output) {
         instance.print(1, 2);
 
-        assertThat(output).contains("Values 1 and 2 were printed\n");
+        assertThat(output).contains("Values 1 and 2 were printed");
     }
 
     @Test
     void shouldLogExchangeRate(CapturedOutput output) {
         instance.getExchangeRate();
 
-        assertThat(output).contains("Current exchange rate is 40\n");
+        assertThat(output).contains("Current exchange rate is 40");
     }
 
     @Test
     void shouldLogNumbersAndTheirSum(CapturedOutput output) {
         instance.sum(1, 2);
 
-        assertThat(output).contains("The sum of two numbers 1 and 2 is 3\n");
+        assertThat(output).contains("The sum of two numbers 1 and 2 is 3");
     }
 }

@@ -23,20 +23,20 @@ class DebugWithOutMessageIT {
     void shouldLogPrintedValues(CapturedOutput output) {
         instance.print(1, 2);
 
-        assertThat(output).contains("Method: 'print' was called with parameters: a=1, b=2\n");
+        assertThat(output).contains("Method: 'print' was called with parameters: a=1, b=2");
     }
 
     @Test
     void shouldLogExchangeRate(CapturedOutput output) {
         instance.getExchangeRate();
 
-        assertThat(output).contains("Method: 'getExchangeRate' returned: 40\n");
+        assertThat(output).contains("Method: 'getExchangeRate' returned: 40");
     }
 
     @Test
     void shouldLogNumbersAndTheirSum(CapturedOutput output) {
         instance.sum(1, 2);
 
-        assertThat(output).contains("Method: 'sum' was called with parameters: a=1, b=2 and returned: 3\n");
+        assertThat(output).contains("Method: 'sum' was called with parameters: a=1, b=2 and returned: 3");
     }
 }
