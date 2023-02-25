@@ -45,7 +45,7 @@ To use the logging annotations in your code, simply add them to the desired meth
 ```
 
 The message is optional. It can be used with default messages which are configured in application.properties
-```text
+```properties
 supreme.message.in-out=Method: '{method}' was called with parameters: {params} and returned: {retVal}
 supreme.message.in=Method: '{method}' was called with parameters: {params}
 supreme.message.out=Method: '{method}' returned: {retVal}
