@@ -16,7 +16,7 @@ public class AnnotationMessageValidatorBPP implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         for (Method method : bean.getClass().getDeclaredMethods()) {
-            validators.forEach(validation -> validation.validate(method));
+            validators.forEach(validator -> validator.validate(method));
         }
         return bean;
     }
