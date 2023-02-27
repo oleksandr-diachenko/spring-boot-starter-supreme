@@ -1,1 +1,2 @@
 org.springframework.boot.env.EnvironmentPostProcessor=com.epam.supreme.internal.environment.PackageToScanProvidedValidatorEPP
+org.springframework.beans.factory.config.BeanPostProcessor=com.epam.supreme.internal.bean.AnnotationMessageValidatorBPP
