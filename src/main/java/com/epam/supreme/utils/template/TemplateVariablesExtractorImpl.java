@@ -1,4 +1,4 @@
-package com.epam.supreme.internal.bean;
+package com.epam.supreme.utils.template;
 
 import com.epam.supreme.property.SupremeProperty;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ public class TemplateVariablesExtractorImpl implements TemplateVariablesExtracto
     private final SupremeProperty property;
 
     @Override
-    public TemplateSignature extract(String message) {
+    public TemplateParts extract(String message) {
         List<String> variableNames = new ArrayList<>();
         boolean isRetValRequired = false;
         for (String word : message.split(" ")) {
@@ -29,7 +29,7 @@ public class TemplateVariablesExtractorImpl implements TemplateVariablesExtracto
                 }
             }
         }
-        return new TemplateSignature(variableNames, isRetValRequired);
+        return new TemplateParts(variableNames, isRetValRequired);
     }
 
     private String extractVariable(String word) {

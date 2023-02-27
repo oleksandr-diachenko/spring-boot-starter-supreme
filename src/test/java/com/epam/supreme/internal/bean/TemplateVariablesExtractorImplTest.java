@@ -1,5 +1,8 @@
 package com.epam.supreme.internal.bean;
 
+import com.epam.supreme.utils.template.TemplateParts;
+import com.epam.supreme.utils.template.TemplateVariablesExtractor;
+import com.epam.supreme.utils.template.TemplateVariablesExtractorImpl;
 import com.epam.supreme.property.SupremeProperty;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,29 +24,29 @@ class TemplateVariablesExtractorImplTest {
 
     @Test
     void shouldExtractVariablesWithRetVal() {
-        TemplateSignature signature = extractor.extract("The sum of two numbers {a} and {b} is {retVal}");
+        TemplateParts signature = extractor.extract("The sum of two numbers {a} and {b} is {retVal}");
 
-        assertThat(signature).isEqualTo(new TemplateSignature(List.of("a", "b"), true));
+        assertThat(signature).isEqualTo(new TemplateParts(List.of("a", "b"), true));
     }
 
     @Test
     void shouldExtractVariablesWithoutRetVal() {
-        TemplateSignature signature = extractor.extract("Values {a} and {b} were printed");
+        TemplateParts signature = extractor.extract("Values {a} and {b} were printed");
 
-        assertThat(signature).isEqualTo(new TemplateSignature(List.of("a", "b"), false));
+        assertThat(signature).isEqualTo(new TemplateParts(List.of("a", "b"), false));
     }
 
     @Test
     void shouldExtractRetValWithoutVariables() {
-        TemplateSignature signature = extractor.extract("Current exchange rate is {retVal}");
+        TemplateParts signature = extractor.extract("Current exchange rate is {retVal}");
 
-        assertThat(signature).isEqualTo(new TemplateSignature(emptyList(), true));
+        assertThat(signature).isEqualTo(new TemplateParts(emptyList(), true));
     }
 
     @Test
     void shouldReturnEmptySignatureWhenMethodDontHaveParamsAndReturnType() {
-        TemplateSignature signature = extractor.extract("Process some data");
+        TemplateParts signature = extractor.extract("Process some data");
 
-        assertThat(signature).isEqualTo(new TemplateSignature(emptyList(), false));
+        assertThat(signature).isEqualTo(new TemplateParts(emptyList(), false));
     }
 }
