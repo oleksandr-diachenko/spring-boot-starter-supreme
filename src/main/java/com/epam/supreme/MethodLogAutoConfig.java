@@ -4,10 +4,7 @@ import com.epam.supreme.property.SupremeProperty;
 import com.epam.supreme.utils.formatter.MapWithoutBracketsStringFormatter;
 import com.epam.supreme.utils.formatter.StringFormatter;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.*;
 
 import java.util.Map;
 
@@ -15,6 +12,7 @@ import java.util.Map;
 @EnableAspectJAutoProxy
 @ComponentScan(basePackages = "com.epam")
 @EnableConfigurationProperties(SupremeProperty.class)
+@PropertySource("classpath:supreme-application.properties")
 public class MethodLogAutoConfig {
 
     @Bean
