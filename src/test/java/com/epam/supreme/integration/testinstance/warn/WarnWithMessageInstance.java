@@ -1,24 +1,25 @@
-package com.epam.supreme.integration.testinstance;
+package com.epam.supreme.integration.testinstance.warn;
 
 import com.epam.supreme.annotation.LogWarn;
+import com.epam.supreme.integration.testinstance.AbstractInstance;
 import org.springframework.stereotype.Component;
 
 @Component
-public class WarnWithoutMessageInstance extends AbstractInstance {
+public class WarnWithMessageInstance extends AbstractInstance {
 
-    @LogWarn
+    @LogWarn(message = PRINT_MESSAGE)
     @Override
     public void print(int a, int b) {
         super.print(a, b);
     }
 
-    @LogWarn
+    @LogWarn(message = EXCHANGE_RATE_MESSAGE)
     @Override
     public int getExchangeRate() {
         return super.getExchangeRate();
     }
 
-    @LogWarn
+    @LogWarn(message = SUM_MESSAGE)
     @Override
     public int sum(int a, int b) {
         return super.sum(a, b);

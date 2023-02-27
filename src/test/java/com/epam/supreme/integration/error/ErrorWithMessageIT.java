@@ -1,7 +1,7 @@
-package com.epam.supreme.integration;
+package com.epam.supreme.integration.error;
 
 import com.epam.supreme.TestConfig;
-import com.epam.supreme.integration.testinstance.WarnWithMessageInstance;
+import com.epam.supreme.integration.testinstance.error.ErrorWithMessageInstance;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +12,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(classes = TestConfig.class, properties = "logging.level.com.epam.supreme.integration.testinstance=WARN")
+@SpringBootTest(classes = TestConfig.class, properties = "logging.level.com.epam.supreme.integration.testinstance.error=ERROR")
 @ExtendWith({SpringExtension.class, OutputCaptureExtension.class})
-class WarnWithMessageIT {
+class ErrorWithMessageIT {
 
     @Autowired
-    private WarnWithMessageInstance instance;
+    private ErrorWithMessageInstance instance;
 
     @Test
     void shouldLogPrintedValues(CapturedOutput output) {

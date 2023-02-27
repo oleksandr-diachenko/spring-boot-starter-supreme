@@ -1,6 +1,7 @@
-package com.epam.supreme.integration.testinstance;
+package com.epam.supreme.integration.testinstance.info;
 
 import com.epam.supreme.annotation.LogInfo;
+import com.epam.supreme.integration.testinstance.AbstractInstance;
 import org.springframework.stereotype.Component;
 
 @Component

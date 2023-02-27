@@ -1,24 +1,25 @@
-package com.epam.supreme.integration.testinstance;
+package com.epam.supreme.integration.testinstance.error;
 
-import com.epam.supreme.annotation.LogTrace;
+import com.epam.supreme.annotation.LogError;
+import com.epam.supreme.integration.testinstance.AbstractInstance;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TraceWithoutMessageInstance extends AbstractInstance {
+public class ErrorWithoutMessageInstance extends AbstractInstance {
 
-    @LogTrace
+    @LogError
     @Override
     public void print(int a, int b) {
         super.print(a, b);
     }
 
-    @LogTrace
+    @LogError
     @Override
     public int getExchangeRate() {
         return super.getExchangeRate();
     }
 
-    @LogTrace
+    @LogError
     @Override
     public int sum(int a, int b) {
         return super.sum(a, b);
