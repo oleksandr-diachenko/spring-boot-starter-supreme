@@ -9,14 +9,14 @@ import java.util.List;
 import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class CurveBracketsTemplateVariablesExtractorTest {
+class TemplateVariablesExtractorImplTest {
 
     private TemplateVariablesExtractor extractor;
 
     @BeforeEach
     void setUp() {
         SupremeProperty property = new SupremeProperty(null, null, new SupremeProperty.Template("retVal", "{", "}"));
-        extractor = new CurveBracketsTemplateVariablesExtractor(property);
+        extractor = new TemplateVariablesExtractorImpl(property);
     }
 
     @Test

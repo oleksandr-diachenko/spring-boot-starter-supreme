@@ -11,7 +11,7 @@ import static org.apache.commons.lang3.StringUtils.substringBetween;
 
 @Component
 @RequiredArgsConstructor
-public class CurveBracketsTemplateVariablesExtractor implements TemplateVariablesExtractor {
+public class TemplateVariablesExtractorImpl implements TemplateVariablesExtractor {
 
     private final SupremeProperty property;
 
