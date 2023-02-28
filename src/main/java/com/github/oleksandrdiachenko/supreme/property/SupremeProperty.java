@@ -11,6 +11,7 @@ public record SupremeProperty(Message message, Template template) {
     public record Message(@NotBlank String in, @NotBlank String out, @NotBlank String inOut) {
     }
 
-    public record Template(@NotBlank String retVal, @NotBlank String prefix, @NotBlank String suffix) {
+    public record Template(@NotBlank String retVal, @NotBlank String prefix, @NotBlank String suffix,
+                           @NotBlank String params, @NotBlank String method) {
     }
 }
