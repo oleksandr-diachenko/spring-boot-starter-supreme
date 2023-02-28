@@ -19,4 +19,5 @@ public class MethodLogAutoConfig {
     public StringFormatter<Map<String, Object>> mapStringFormatter() {
         return new MapWithoutBracketsStringFormatter<>();
     }
+
 }

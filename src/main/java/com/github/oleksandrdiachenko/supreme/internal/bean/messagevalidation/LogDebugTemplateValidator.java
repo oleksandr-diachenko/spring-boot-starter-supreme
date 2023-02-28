@@ -7,16 +7,18 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
+import static org.springframework.core.annotation.AnnotationUtils.findAnnotation;
+
 @Component
 @RequiredArgsConstructor
 public class LogDebugTemplateValidator implements Validator<Method> {
-    
+
     private final TemplateValidator templateValidator;
-    
+
     @Override
     public void validate(Method method) {
-        if (method.isAnnotationPresent(LogDebug.class)) {
-            LogDebug annotation = method.getAnnotation(LogDebug.class);
+        LogDebug annotation = findAnnotation(method, LogDebug.class);
+        if (annotation != null) {
             templateValidator.checkMessage(method, annotation.message());
         }
     }
