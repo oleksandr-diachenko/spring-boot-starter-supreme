@@ -41,7 +41,7 @@ To use the logging annotations in your code, simply add them to the desired meth
         // logic
     }
     
-    @LogDebug(message = "The sum of two numbers {a} and {b} is {retVal}")
+    @LogDebug(message = "The sum of two numbers {0} and {1} is {retVal}")
     public int sum(int a, int b) {
         return super.sum(a, b);
     }
