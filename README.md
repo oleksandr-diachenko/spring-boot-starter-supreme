@@ -48,17 +48,6 @@ To use the logging annotations in your code, simply add them to the desired meth
     
 ```
 
-### **Available configuration**
-```properties
-supreme.template.ret-val=retVal - Name of return value variable
-supreme.template.prefix={ - Prefix for variables
-supreme.template.suffix=} - Suffix for variables
-
-supreme.message.in-out=Method: '{method}' was called with parameters: {params} and returned: {retVal} - Message which will be used for method which contains parameters and returned value
-supreme.message.in=Method: '{method}' was called with parameters: {params} - Message which will be used with method which contains only parameters
-supreme.message.out=Method: '{method}' returned: {retVal} - Message which will be used with method which contains only returned value
-```
-
 ## **License**
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
