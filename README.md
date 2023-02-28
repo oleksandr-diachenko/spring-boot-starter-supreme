@@ -36,19 +36,27 @@ To use Spring Boot Starter Supreme in your project, add the dependency to your p
 To use the logging annotations in your code, simply add them to the desired methods. Here's an example:
 
 ```java
+    @LogDebug
+    public void print(String message) {
+        // logic
+    }
+    
     @LogDebug(message = "The sum of two numbers {a} and {b} is {retVal}")
-    @Override
     public int sum(int a, int b) {
         return super.sum(a, b);
     }
     
 ```
 
-The message is optional. It can be used with default messages which are configured in application.properties
+### **Available configuration**
 ```properties
-supreme.message.in-out=Method: '{method}' was called with parameters: {params} and returned: {retVal}
-supreme.message.in=Method: '{method}' was called with parameters: {params}
-supreme.message.out=Method: '{method}' returned: {retVal}
+supreme.template.ret-val=retVal - Name of return value variable
+supreme.template.prefix={ - Prefix for variables
+supreme.template.suffix=} - Suffix for variables
+
+supreme.message.in-out=Method: '{method}' was called with parameters: {params} and returned: {retVal} - Message which will be used for method which contains parameters and returned value
+supreme.message.in=Method: '{method}' was called with parameters: {params} - Message which will be used with method which contains only parameters
+supreme.message.out=Method: '{method}' returned: {retVal} - Message which will be used with method which contains only returned value
 ```
 
 ## **License**
