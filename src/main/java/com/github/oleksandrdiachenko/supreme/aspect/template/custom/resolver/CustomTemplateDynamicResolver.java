@@ -6,5 +6,5 @@ import java.util.Map;
 
 public interface CustomTemplateDynamicResolver {
 
-    String resolve(String template, Map<String, Object> args, @Nullable Object retVal);
+    String resolve(String template, Map<Integer, Object> args, @Nullable Object retVal);
 }

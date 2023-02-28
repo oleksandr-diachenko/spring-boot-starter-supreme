@@ -14,11 +14,11 @@ public class CustomCustomTemplateDynamicResolverImpl implements CustomTemplateDy
     private final SupremeProperty property;
 
     @Override
-    public String resolve(String template, Map<String, Object> args, @Nullable Object retVal) {
+    public String resolve(String template, Map<Integer, Object> args, @Nullable Object retVal) {
         if (retVal != null) {
             template = template.replace(getRetValTemplate(), retVal.toString());
         }
-        for (Map.Entry<String, Object> entry : args.entrySet()) {
+        for (Map.Entry<Integer, Object> entry : args.entrySet()) {
             template = template.replace(getTemplatePrefix() + entry.getKey() + getTemplateSuffix(), entry.getValue().toString());
         }
         return template;

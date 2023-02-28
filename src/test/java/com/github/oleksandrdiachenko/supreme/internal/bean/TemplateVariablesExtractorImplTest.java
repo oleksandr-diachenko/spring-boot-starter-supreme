@@ -24,16 +24,16 @@ class TemplateVariablesExtractorImplTest {
 
     @Test
     void shouldExtractVariablesWithRetVal() {
-        TemplateParts signature = extractor.extract("The sum of two numbers {a} and {b} is {retVal}");
+        TemplateParts signature = extractor.extract("The sum of two numbers {0} and {1} is {retVal}");
 
-        assertThat(signature).isEqualTo(new TemplateParts(List.of("a", "b"), true));
+        assertThat(signature).isEqualTo(new TemplateParts(List.of(0, 1), true));
     }
 
     @Test
     void shouldExtractVariablesWithoutRetVal() {
-        TemplateParts signature = extractor.extract("Values {a} and {b} were printed");
+        TemplateParts signature = extractor.extract("Values {0} and {1} were printed");
 
-        assertThat(signature).isEqualTo(new TemplateParts(List.of("a", "b"), false));
+        assertThat(signature).isEqualTo(new TemplateParts(List.of(0, 1), false));
     }
 
     @Test

@@ -25,6 +25,6 @@ public class OverriddenMessageIT {
     void shouldLogNumbersAndTheirSum(CapturedOutput output) {
         instance.sum(1, 2);
 
-        assertThat(output).contains("Custom message from method: sum with parameters: a=1, b=2 and returned value as 3");
+        assertThat(output).contains("Custom message from method: sum with parameters: 0=1, 1=2 and returned value as 3");
     }
 }

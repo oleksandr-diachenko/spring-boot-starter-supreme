@@ -2,9 +2,9 @@ package com.github.oleksandrdiachenko.supreme.integration.testinstance;
 
 public abstract class AbstractInstance {
 
-    protected final String PRINT_MESSAGE = "Values {a} and {b} were printed";
+    protected final String PRINT_MESSAGE = "Values {0} and {1} were printed";
     protected final String EXCHANGE_RATE_MESSAGE = "Current exchange rate is {retVal}";
-    protected final String SUM_MESSAGE = "The sum of two numbers {a} and {b} is {retVal}";
+    protected final String SUM_MESSAGE = "The sum of two numbers {0} and {1} is {retVal}";
 
     public void print(int a, int b) {
         // do nothing

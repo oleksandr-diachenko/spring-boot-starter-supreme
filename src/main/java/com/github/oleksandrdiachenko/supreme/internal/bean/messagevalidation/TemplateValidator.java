@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -23,15 +22,14 @@ public class TemplateValidator {
         }
         TemplateParts signature = templateVariablesExtractor.extract(template);
         checkReturnValue(method, signature.isRetValPresent());
-        checkMethodParameters(method, signature.params());
+        checkMethodParameters(method, signature.paramsIndexes());
     }
 
-    private void checkMethodParameters(Method method, List<String> variables) {
+    private void checkMethodParameters(Method method, List<Integer> indexes) {
         Parameter[] params = method.getParameters();
-        for (String variable : variables) {
-            boolean dontHasVariable = Arrays.stream(params).noneMatch(param -> param.getName().equalsIgnoreCase(variable));
-            if (dontHasVariable) {
-                throw new IncorrectMessageTemplateException("Method don't have parameter: " + variable);
+        for (int index : indexes) {
+            if (index < 0 || index >= params.length) {
+                throw new IncorrectMessageTemplateException("Method don't have parameter at index: " + index);
             }
         }
     }

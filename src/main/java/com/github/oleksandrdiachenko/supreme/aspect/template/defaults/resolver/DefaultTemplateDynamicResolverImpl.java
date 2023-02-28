@@ -17,13 +17,13 @@ public class DefaultTemplateDynamicResolverImpl implements DefaultTemplateDynami
 
     private final MethodResolver methodResolver;
     private final ParamsResolver paramsResolver;
-    private final StringFormatter<Map<String, Object>> mapStringFormatter;
+    private final StringFormatter<Map<Integer, Object>> mapStringFormatter;
 
     @Override
     public String resolve(String message, JoinPoint jp, @Nullable Object retVal) {
         Method method = methodResolver.resolve(jp);
         String methodName = method.getName();
-        Map<String, Object> params = paramsResolver.resolve(jp);
+        Map<Integer, Object> params = paramsResolver.resolve(jp);
         String formattedParams = mapStringFormatter.format(params);
         String returnedValue = retVal != null ? retVal.toString() : "";
         return message

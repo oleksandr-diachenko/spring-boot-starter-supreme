@@ -17,7 +17,7 @@ public class TemplateVariablesExtractorImpl implements TemplateVariablesExtracto
 
     @Override
     public TemplateParts extract(String message) {
-        List<String> variableNames = new ArrayList<>();
+        List<Integer> variableNames = new ArrayList<>();
         boolean isRetValRequired = false;
         for (String word : message.split(" ")) {
             if (isVariableTemplate(word)) {
@@ -25,7 +25,7 @@ public class TemplateVariablesExtractorImpl implements TemplateVariablesExtracto
                 if (variable.equalsIgnoreCase(property.template().retVal())) {
                     isRetValRequired = true;
                 } else {
-                    variableNames.add(variable);
+                    variableNames.add(Integer.parseInt(variable));
                 }
             }
         }

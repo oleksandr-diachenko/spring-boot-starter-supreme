@@ -15,15 +15,14 @@ public class ParamsResolver {
 
     private final MethodResolver methodResolver;
 
-    public Map<String, Object> resolve(JoinPoint jp) {
+    public Map<Integer, Object> resolve(JoinPoint jp) {
         Method method = methodResolver.resolve(jp);
         Parameter[] parameters = method.getParameters();
         Object[] args = jp.getArgs();
-        Map<String, Object> result = new HashMap<>();
+        Map<Integer, Object> result = new HashMap<>();
         for (int i = 0; i < parameters.length; i++) {
-            String name = parameters[i].getName();
             Object value = args[i];
-            result.put(name, value);
+            result.put(i, value);
         }
         return result;
     }

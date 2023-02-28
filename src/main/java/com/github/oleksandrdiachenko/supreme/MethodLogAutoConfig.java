@@ -16,7 +16,7 @@ import java.util.Map;
 public class MethodLogAutoConfig {
 
     @Bean
-    public StringFormatter<Map<String, Object>> mapStringFormatter() {
+    public StringFormatter<Map<Integer, Object>> mapStringFormatter() {
         return new MapWithoutBracketsStringFormatter<>();
     }
 

@@ -23,7 +23,7 @@ class DebugWithOutMessageIT {
     void shouldLogPrintedValues(CapturedOutput output) {
         instance.print(1, 2);
 
-        assertThat(output).contains("Method: 'print' was called with parameters: a=1, b=2");
+        assertThat(output).contains("Method: 'print' was called with parameters: 0=1, 1=2");
     }
 
     @Test
@@ -37,6 +37,6 @@ class DebugWithOutMessageIT {
     void shouldLogNumbersAndTheirSum(CapturedOutput output) {
         instance.sum(1, 2);
 
-        assertThat(output).contains("Method: 'sum' was called with parameters: a=1, b=2 and returned: 3");
+        assertThat(output).contains("Method: 'sum' was called with parameters: 0=1, 1=2 and returned: 3");
     }
 }

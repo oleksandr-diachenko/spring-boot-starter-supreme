@@ -17,7 +17,7 @@ public class CustomMessageConstructor {
     private final ParamsResolver paramsResolver;
 
     public String construct(JoinPoint jp, String template, @Nullable Object retVal) {
-        Map<String, Object> params = paramsResolver.resolve(jp);
+        Map<Integer, Object> params = paramsResolver.resolve(jp);
         return customTemplateDynamicResolver.resolve(template, params, retVal);
     }
 }
