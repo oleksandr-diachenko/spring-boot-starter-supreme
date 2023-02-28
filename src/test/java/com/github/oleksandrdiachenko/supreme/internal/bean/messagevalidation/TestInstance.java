@@ -10,6 +10,6 @@ public class TestInstance {
     @LogTrace(message = "Message form LogTrace")
     @LogError(message = "Message form LogError")
     public void doSomething() {
-        //do nothing
+        // do nothing
     }
 }

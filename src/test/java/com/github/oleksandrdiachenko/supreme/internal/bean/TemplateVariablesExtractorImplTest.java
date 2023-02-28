@@ -1,9 +1,9 @@
 package com.github.oleksandrdiachenko.supreme.internal.bean;
 
+import com.github.oleksandrdiachenko.supreme.property.SupremeProperty;
 import com.github.oleksandrdiachenko.supreme.utils.template.TemplateParts;
 import com.github.oleksandrdiachenko.supreme.utils.template.TemplateVariablesExtractor;
 import com.github.oleksandrdiachenko.supreme.utils.template.TemplateVariablesExtractorImpl;
-import com.github.oleksandrdiachenko.supreme.property.SupremeProperty;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -24,15 +24,15 @@ public class CustomCustomTemplateDynamicResolverImpl implements CustomTemplateDy
         return template;
     }
 
-    private  String getTemplateSuffix() {
+    private String getTemplateSuffix() {
         return property.template().suffix();
     }
 
-    private  String getTemplatePrefix() {
+    private String getTemplatePrefix() {
         return property.template().prefix();
     }
 
-    private  String getRetValTemplate() {
+    private String getRetValTemplate() {
         return getTemplatePrefix() + property.template().retVal() + getTemplateSuffix();
 
     }
