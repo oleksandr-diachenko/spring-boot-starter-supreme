@@ -12,7 +12,7 @@
 
     <groupId>com.github.oleksandr-diachenko</groupId>
     <artifactId>spring-boot-starter-supreme</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <name>spring-boot-starter-supreme</name>
     <description>Starter for logging methods via annotations</description>
     <packaging>jar</packaging>
@@ -54,4 +54,11 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/oleksandr-diachenko/spring-boot-starter-supreme</url>
+        </repository>
+    </distributionManagement>
 </project>
