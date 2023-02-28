@@ -1,13 +1,16 @@
 package com.epam.supreme.property;
 
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.validation.annotation.Validated;
 
 @ConfigurationProperties("supreme")
-public record SupremeProperty(String packageToScan, Message message, Template template) {
+@Validated
+public record SupremeProperty(Message message, Template template) {
 
-    public record Message(String in, String out, String inOut) {
+    public record Message(@NotBlank String in, @NotBlank String out, @NotBlank String inOut) {
     }
 
-    public record Template(String retVal, String prefix, String suffix){
+    public record Template(@NotBlank String retVal, @NotBlank String prefix, @NotBlank String suffix) {
     }
 }

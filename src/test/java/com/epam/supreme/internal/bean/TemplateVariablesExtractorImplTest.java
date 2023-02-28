@@ -18,7 +18,7 @@ class TemplateVariablesExtractorImplTest {
 
     @BeforeEach
     void setUp() {
-        SupremeProperty property = new SupremeProperty(null, null, new SupremeProperty.Template("retVal", "{", "}"));
+        SupremeProperty property = new SupremeProperty(null, new SupremeProperty.Template("retVal", "{", "}"));
         extractor = new TemplateVariablesExtractorImpl(property);
     }
 

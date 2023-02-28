@@ -10,7 +10,7 @@ import java.util.Map;
 
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan(basePackages = "com.epam")
+@ComponentScan(basePackages = "com.epam.supreme")
 @EnableConfigurationProperties(SupremeProperty.class)
 @PropertySource("classpath:supreme-application.properties")
 public class MethodLogAutoConfig {
