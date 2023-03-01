@@ -1,16 +1,14 @@
 package com.github.oleksandrdiachenko.supreme;
 
 import com.github.oleksandrdiachenko.supreme.internal.bean.AnnotationMessageValidatorBPP;
+import com.github.oleksandrdiachenko.supreme.internal.bean.messagevalidation.MethodValidators;
 import com.github.oleksandrdiachenko.supreme.property.SupremeProperty;
 import com.github.oleksandrdiachenko.supreme.utils.formatter.MapWithoutBracketsStringFormatter;
 import com.github.oleksandrdiachenko.supreme.utils.formatter.StringFormatter;
-import com.github.oleksandrdiachenko.supreme.validator.Validator;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
-import java.lang.reflect.Method;
-import java.util.List;
 import java.util.Map;
 
 @Configuration
@@ -26,8 +24,8 @@ public class MethodLogAutoConfig {
     }
 
     @Bean
-    public BeanPostProcessor annotationMessageValidatorBPP(List<Validator<Method>> validators) {
-        return new AnnotationMessageValidatorBPP(validators);
+    public BeanPostProcessor annotationMessageValidatorBPP(MethodValidators methodValidators) {
+        return new AnnotationMessageValidatorBPP(methodValidators);
     }
 
 }

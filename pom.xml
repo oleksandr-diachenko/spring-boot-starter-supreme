@@ -12,7 +12,7 @@
 
     <groupId>com.github.oleksandr-diachenko</groupId>
     <artifactId>spring-boot-starter-supreme</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>spring-boot-starter-supreme</name>
     <description>Starter for logging methods via annotations</description>
     <packaging>jar</packaging>
